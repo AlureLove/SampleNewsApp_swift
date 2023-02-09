@@ -13,6 +13,8 @@
 		47D00EB22992ADBC00E7E2A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D00EB12992ADBC00E7E2A5 /* Assets.xcassets */; };
 		47D00EB52992ADBC00E7E2A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D00EB32992ADBC00E7E2A5 /* LaunchScreen.storyboard */; };
 		47D00EBD2993E13A00E7E2A5 /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47D00EBC2993E13A00E7E2A5 /* icon.bundle */; };
+		47D00EC129953A1500E7E2A5 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EC029953A1500E7E2A5 /* VideoViewController.swift */; };
+		47D00EC3299540C300E7E2A5 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EC2299540C300E7E2A5 /* RecommendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		47D00EB42992ADBC00E7E2A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D00EB62992ADBC00E7E2A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47D00EBC2993E13A00E7E2A5 /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
+		47D00EC029953A1500E7E2A5 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		47D00EC2299540C300E7E2A5 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				47D00EB12992ADBC00E7E2A5 /* Assets.xcassets */,
 				47D00EB32992ADBC00E7E2A5 /* LaunchScreen.storyboard */,
 				47D00EB62992ADBC00E7E2A5 /* Info.plist */,
+				47D00EC029953A1500E7E2A5 /* VideoViewController.swift */,
+				47D00EC2299540C300E7E2A5 /* RecommendViewController.swift */,
 			);
 			path = SingleApp_Swift;
 			sourceTree = "<group>";
@@ -140,7 +146,9 @@
 			files = (
 				47D00EAD2992ADBC00E7E2A5 /* ViewController.swift in Sources */,
 				47D00EA92992ADBC00E7E2A5 /* AppDelegate.swift in Sources */,
+				47D00EC129953A1500E7E2A5 /* VideoViewController.swift in Sources */,
 				47D00EAB2992ADBC00E7E2A5 /* SceneDelegate.swift in Sources */,
+				47D00EC3299540C300E7E2A5 /* RecommendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

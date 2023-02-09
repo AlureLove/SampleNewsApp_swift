@@ -32,17 +32,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        navigationController.tabBarItem.image = UIImage(named: "icon.bundle/page@2x.png")
 //        navigationController.tabBarItem.selectedImage = UIImage(named: "icon.bundle/page_selected@2x.png")
         
-        let controller2 = UIViewController()
-        controller2.view.backgroundColor = .yellow;
-        controller2.tabBarItem.title = "视频"
-        controller2.tabBarItem.image = UIImage(named: "icon.bundle/video@2x.png")
-        controller2.tabBarItem.selectedImage = UIImage(named: "icon.bundle/video_selected@2x.png")
+        let videoVC = VideoViewController()
         
-        let controller3 = UIViewController()
-        controller3.view.backgroundColor = .green;
-        controller3.tabBarItem.title = "推荐"
-        controller3.tabBarItem.image = UIImage(named: "icon.bundle/like@2x.png")
-        controller3.tabBarItem.selectedImage = UIImage(named: "icon.bundle/like_selected@2x.png")
+        let recommendVC = RecommendViewController()
         
         let controller4 = UIViewController()
         controller4.view.backgroundColor = .lightGray;
@@ -50,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         controller4.tabBarItem.image = UIImage(named: "icon.bundle/home@2x.png")
         controller4.tabBarItem.selectedImage = UIImage(named: "icon.bundle/home_selected@2x.png")
         
-        tabbarController.setViewControllers([viewController, controller2, controller3, controller4], animated: true)
+        tabbarController.setViewControllers([viewController, videoVC, recommendVC, controller4], animated: true)
         
         let navigationController = UINavigationController(rootViewController: tabbarController)
         
