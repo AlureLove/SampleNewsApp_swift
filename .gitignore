@@ -1,2 +1,6 @@
-/Users/liuruixuan/Desktop/workspace_xcode/SampleNewsApp_swift/SingleApp_Swift/SingleApp_Swift.xcodeproj/project.xcworkspace/xcuserdata/liuruixuan.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-/Users/liuruixuan/Desktop/workspace_xcode/SampleNewsApp_swift/SingleApp_Swift/SingleApp_Swift.xcodeproj/project.xcworkspace/xcuserdata/liuruixuan.xcuserdatad/UserInterfaceState.xcuserstate
+build/
+*.pbxuser
+!default.pbxuser
+xcuserdata
+*.xccheckout
+*.xcuserstate
