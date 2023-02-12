@@ -10,12 +10,6 @@ import SnapKit
 
 class NormalTableViewCell: UITableViewCell {
     
-//    var titleLabel: UILabel?
-//    var sourceLabel: UILabel?
-//    var commentLabel: UILabel?
-//    var timeLabel: UILabel?
-    
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupViews()
@@ -54,6 +48,13 @@ class NormalTableViewCell: UITableViewCell {
             make.width.equalTo(50)
             make.height.equalTo(20)
         }
+        self.contentView.addSubview(self.imageV)
+        self.imageV.snp.makeConstraints { make in
+            make.top.equalTo(self.contentView).offset(15)
+            make.right.equalTo(self.contentView).offset(-15)
+            make.width.equalTo(70)
+            make.height.equalTo(70)
+        }
     }
     
     public func layoutTableViewCell() {
@@ -76,6 +77,8 @@ class NormalTableViewCell: UITableViewCell {
             make.width.equalTo(50)
             make.height.equalTo(20)
         }
+        
+        self.imageV.image = UIImage(named: "icon.bundle/icon.png")
     }
     
     // MARK - lazy load
@@ -107,4 +110,8 @@ class NormalTableViewCell: UITableViewCell {
         return timeLabel
     }()
     
+    lazy private var imageV: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
 }
