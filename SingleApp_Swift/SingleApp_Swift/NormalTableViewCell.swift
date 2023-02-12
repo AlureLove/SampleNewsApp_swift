@@ -55,6 +55,13 @@ class NormalTableViewCell: UITableViewCell {
             make.width.equalTo(70)
             make.height.equalTo(70)
         }
+        self.contentView.addSubview(self.deleteButton)
+        self.deleteButton.snp.makeConstraints { make in
+            make.right.equalTo(self.imageV.snp.left).offset(-15)
+            make.bottom.equalTo(self.contentView).offset(-10)
+            make.width.equalTo(30)
+            make.height.equalTo(20)
+        }
     }
     
     public func layoutTableViewCell() {
@@ -79,6 +86,10 @@ class NormalTableViewCell: UITableViewCell {
         }
         
         self.imageV.image = UIImage(named: "icon.bundle/icon.png")
+    }
+    
+    @objc private func deleteButtonClick() {
+        print("click")
     }
     
     // MARK - lazy load
@@ -113,5 +124,14 @@ class NormalTableViewCell: UITableViewCell {
     lazy private var imageV: UIImageView = {
         let imageView = UIImageView()
         return imageView
+    }()
+    
+    lazy private var deleteButton: UIButton = {
+        let deleteButton = UIButton()
+        deleteButton.backgroundColor = .blue
+        deleteButton.setTitle("X", for: .normal)
+        deleteButton.setTitle("V", for: .highlighted)
+        deleteButton.addTarget(self, action: #selector(deleteButtonClick), for: .touchUpInside)
+        return deleteButton
     }()
 }

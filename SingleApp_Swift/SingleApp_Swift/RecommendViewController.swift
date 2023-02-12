@@ -33,11 +33,22 @@ class RecommendViewController: UIViewController {
         
         for i in 0...4 {
             let view = UIView(frame: CGRect(x: scrollView.bounds.size.width * CGFloat(i), y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
+            view.addSubview({
+                let subView = UIView(frame: CGRect(x: 100, y: 200, width: 100, height: 100))
+                subView.backgroundColor = .yellow
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewClick))
+                view.addGestureRecognizer(tapGesture)
+                return subView
+            }())
             view.backgroundColor = colorArray[i]
             scrollView.addSubview(view)
         }
         scrollView.isPagingEnabled = true
         self.view.addSubview(scrollView)
+    }
+    
+    @objc private func viewClick() {
+        print("view click")
     }
 }
 
