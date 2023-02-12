@@ -92,7 +92,7 @@ class NormalTableViewCell: UITableViewCell {
         print("click")
     }
     
-    // MARK - lazy load
+    // MARK: - lazy load
     lazy private var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: 16)

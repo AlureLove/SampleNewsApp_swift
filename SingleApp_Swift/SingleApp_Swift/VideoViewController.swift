@@ -42,7 +42,7 @@ class VideoViewController: UIViewController {
     
 }
 
-// MARK - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension VideoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 200
@@ -55,12 +55,12 @@ extension VideoViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension VideoViewController: UICollectionViewDelegate {
     
 }
 
-// MARK - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension VideoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if (indexPath.item % 3 == 0) {

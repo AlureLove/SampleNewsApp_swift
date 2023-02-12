@@ -17,6 +17,7 @@
 		47D00EC129953A1500E7E2A5 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EC029953A1500E7E2A5 /* VideoViewController.swift */; };
 		47D00EC3299540C300E7E2A5 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EC2299540C300E7E2A5 /* RecommendViewController.swift */; };
 		47D00EDB2998B81C00E7E2A5 /* NormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EDA2998B81C00E7E2A5 /* NormalTableViewCell.swift */; };
+		47D00EDD2998CCF300E7E2A5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		47D00EC029953A1500E7E2A5 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		47D00EC2299540C300E7E2A5 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		47D00EDA2998B81C00E7E2A5 /* NormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTableViewCell.swift; sourceTree = "<group>"; };
+		47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		94BC98B86630F817705BD522 /* Pods-SingleApp_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingleApp_Swift.release.xcconfig"; path = "Target Support Files/Pods-SingleApp_Swift/Pods-SingleApp_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		EA7EAB2B0FBEB1361FBE2072 /* Pods_SingleApp_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SingleApp_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 				47D00EC029953A1500E7E2A5 /* VideoViewController.swift */,
 				47D00EC2299540C300E7E2A5 /* RecommendViewController.swift */,
 				47D00EDA2998B81C00E7E2A5 /* NormalTableViewCell.swift */,
+				47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */,
 			);
 			path = SingleApp_Swift;
 			sourceTree = "<group>";
@@ -97,7 +100,6 @@
 				1159D2B228E172D27B142B54 /* Pods-SingleApp_Swift.debug.xcconfig */,
 				94BC98B86630F817705BD522 /* Pods-SingleApp_Swift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -222,6 +224,7 @@
 				47D00EAB2992ADBC00E7E2A5 /* SceneDelegate.swift in Sources */,
 				47D00EDB2998B81C00E7E2A5 /* NormalTableViewCell.swift in Sources */,
 				47D00EC3299540C300E7E2A5 /* RecommendViewController.swift in Sources */,
+				47D00EDD2998CCF300E7E2A5 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

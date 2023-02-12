@@ -54,7 +54,7 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = UIViewController()
+        let controller = DetailViewController()
         controller.title = "\(indexPath.row)"
         self.navigationController?.pushViewController(controller, animated: true)
     }
