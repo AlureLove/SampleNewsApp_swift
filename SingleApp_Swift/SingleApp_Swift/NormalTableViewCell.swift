@@ -8,7 +8,13 @@
 import UIKit
 import SnapKit
 
+@objc public protocol NormalTableViewCellDelegate: NSObjectProtocol {
+    func tableViewCell(_ tableViewcell: UITableViewCell, clickDeleteButton deleteButton: UIButton)
+}
+
 class NormalTableViewCell: UITableViewCell {
+    
+    weak open var delegate: NormalTableViewCellDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -89,7 +95,9 @@ class NormalTableViewCell: UITableViewCell {
     }
     
     @objc private func deleteButtonClick() {
-        print("click")
+        if (self.delegate != nil) {
+            self.delegate?.tableViewCell(self, clickDeleteButton: self.deleteButton)
+        }
     }
     
     // MARK: - lazy load
