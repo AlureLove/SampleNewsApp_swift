@@ -8,46 +8,37 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        self.window?.windowScene = windowScene
-        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+
         let tabbarController = UITabBarController()
         tabbarController.delegate = self
-        
-        let viewController = ViewController()
-        viewController.tabBarItem.title = "新闻"
-        viewController.tabBarItem.image = UIImage(named: "icon.bundle/page@2x.png")
-        viewController.tabBarItem.selectedImage = UIImage(named: "icon.bundle/page_selected@2x.png")
-//        let navigationController = UINavigationController(rootViewController: viewController)
-//        navigationController.tabBarItem.title = "新闻"
-//        navigationController.tabBarItem.image = UIImage(named: "icon.bundle/page@2x.png")
-//        navigationController.tabBarItem.selectedImage = UIImage(named: "icon.bundle/page_selected@2x.png")
-        
+
+        let newsVC = NewsViewController()
+
         let videoVC = VideoViewController()
-        
+
         let recommendVC = RecommendViewController()
-        
-        let controller4 = UIViewController()
-        controller4.view.backgroundColor = .lightGray;
-        controller4.tabBarItem.title = "我的"
-        controller4.tabBarItem.image = UIImage(named: "icon.bundle/home@2x.png")
-        controller4.tabBarItem.selectedImage = UIImage(named: "icon.bundle/home_selected@2x.png")
-        
-        tabbarController.setViewControllers([viewController, videoVC, recommendVC, controller4], animated: true)
-        
+
+        let mineVC = UIViewController()
+        mineVC.view.backgroundColor = .lightGray
+        mineVC.tabBarItem.title = "我的"
+        mineVC.tabBarItem.image = UIImage(named: "icon.bundle/home@2x.png")
+        mineVC.tabBarItem.selectedImage = UIImage(named: "icon.bundle/home_selected@2x.png")
+
+        tabbarController.setViewControllers([newsVC, videoVC, recommendVC, mineVC], animated: true)
+
         let navigationController = UINavigationController(rootViewController: tabbarController)
-        
-        self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
+
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -77,10 +68,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-
 
 extension SceneDelegate: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

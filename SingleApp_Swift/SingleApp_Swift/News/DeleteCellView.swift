@@ -5,50 +5,47 @@
 //  Created by liuruixuan on 2023/2/12.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 class DeleteCellView: UIView {
-    
-    public var clickBlock = { () -> Void in
-        
+    public var clickBlock = { () in
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setupViews()
+        setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setupViews() {
-        self.addSubview(self.backgroundView)
-        self.backgroundView.snp.makeConstraints { make in
+        addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { make in
             make.edges.equalTo(self)
         }
-        self.addSubview(self.deleteButton)
+        addSubview(deleteButton)
 //        self.deleteButton.snp.makeConstraints { make in
 //            make.top.left.equalTo(self)
 //            make.width.equalTo(0)
 //            make.height.equalTo(0)
 //        }
     }
-    
+
     @objc private func _clickButton() {
-        self.clickBlock()
-        self.removeFromSuperview()
+        clickBlock()
+        removeFromSuperview()
     }
-    
+
     public func showDeleteView(From point: CGPoint, _ clickBlock: @escaping () -> Void) {
-        
-        self.deleteButton.frame = CGRect(x: point.x, y: point.y, width: 0, height: 0)
+        deleteButton.frame = CGRect(x: point.x, y: point.y, width: 0, height: 0)
         self.clickBlock = clickBlock
-        
+
         if #available(iOS 13, *) {
             UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }?.addSubview(self)
-            
+
 //            self.setNeedsUpdateConstraints()
 //            UIView.animate(withDuration: 1.0) {
 //                self.deleteButton.snp.remakeConstraints { make in
@@ -59,7 +56,7 @@ class DeleteCellView: UIView {
 //                }
 //                self.layoutIfNeeded()
 //            }
-            
+
             UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut) {
 //                self.deleteButton.snp.remakeConstraints { make in
 //                    make.top.equalTo(self).offset((self.bounds.size.height - 200) / 2)
@@ -70,18 +67,18 @@ class DeleteCellView: UIView {
 //                self.layoutIfNeeded()
                 self.deleteButton.frame = CGRect(x: (self.bounds.size.width - 200) / 2, y: (self.bounds.size.height - 200) / 2, width: 200, height: 200)
             } completion: { finished in
-                if (finished) {
+                if finished {
                     print("")
                 }
             }
         }
     }
-    
+
     @objc private func dismissDeleteView() {
-        self.removeFromSuperview()
+        removeFromSuperview()
     }
-    
-    lazy private var backgroundView: UIView = {
+
+    private lazy var backgroundView: UIView = {
         let backgroundView = UIView()
         backgroundView.backgroundColor = .black
         backgroundView.alpha = 0.5
@@ -91,8 +88,8 @@ class DeleteCellView: UIView {
         }())
         return backgroundView
     }()
-    
-    lazy private var deleteButton: UIButton = {
+
+    private lazy var deleteButton: UIButton = {
         let deleteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         deleteButton.backgroundColor = .blue
         deleteButton.addTarget(self, action: #selector(_clickButton), for: .touchUpInside)

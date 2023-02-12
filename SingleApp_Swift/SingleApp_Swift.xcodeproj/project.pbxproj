@@ -10,7 +10,7 @@
 		2EEFD3E882C167BEB6C81C20 /* Pods_SingleApp_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA7EAB2B0FBEB1361FBE2072 /* Pods_SingleApp_Swift.framework */; };
 		47D00EA92992ADBC00E7E2A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EA82992ADBC00E7E2A5 /* AppDelegate.swift */; };
 		47D00EAB2992ADBC00E7E2A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EAA2992ADBC00E7E2A5 /* SceneDelegate.swift */; };
-		47D00EAD2992ADBC00E7E2A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EAC2992ADBC00E7E2A5 /* ViewController.swift */; };
+		47D00EAD2992ADBC00E7E2A5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EAC2992ADBC00E7E2A5 /* NewsViewController.swift */; };
 		47D00EB22992ADBC00E7E2A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D00EB12992ADBC00E7E2A5 /* Assets.xcassets */; };
 		47D00EB52992ADBC00E7E2A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D00EB32992ADBC00E7E2A5 /* LaunchScreen.storyboard */; };
 		47D00EBD2993E13A00E7E2A5 /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47D00EBC2993E13A00E7E2A5 /* icon.bundle */; };
@@ -26,7 +26,7 @@
 		47D00EA52992ADBC00E7E2A5 /* SingleApp_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingleApp_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D00EA82992ADBC00E7E2A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D00EAA2992ADBC00E7E2A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		47D00EAC2992ADBC00E7E2A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		47D00EAC2992ADBC00E7E2A5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		47D00EB12992ADBC00E7E2A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47D00EB42992ADBC00E7E2A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D00EB62992ADBC00E7E2A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,20 +73,28 @@
 		47D00EA72992ADBC00E7E2A5 /* SingleApp_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				47D00EF62998F13C00E7E2A5 /* News */,
 				47D00EBC2993E13A00E7E2A5 /* icon.bundle */,
 				47D00EA82992ADBC00E7E2A5 /* AppDelegate.swift */,
 				47D00EAA2992ADBC00E7E2A5 /* SceneDelegate.swift */,
-				47D00EAC2992ADBC00E7E2A5 /* ViewController.swift */,
 				47D00EB12992ADBC00E7E2A5 /* Assets.xcassets */,
 				47D00EB32992ADBC00E7E2A5 /* LaunchScreen.storyboard */,
 				47D00EB62992ADBC00E7E2A5 /* Info.plist */,
 				47D00EC029953A1500E7E2A5 /* VideoViewController.swift */,
 				47D00EC2299540C300E7E2A5 /* RecommendViewController.swift */,
+			);
+			path = SingleApp_Swift;
+			sourceTree = "<group>";
+		};
+		47D00EF62998F13C00E7E2A5 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				47D00EAC2992ADBC00E7E2A5 /* NewsViewController.swift */,
 				47D00EDA2998B81C00E7E2A5 /* NormalTableViewCell.swift */,
 				47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */,
 				47D00EF42998DEB400E7E2A5 /* DeleteCellView.swift */,
 			);
-			path = SingleApp_Swift;
+			path = News;
 			sourceTree = "<group>";
 		};
 		7B34859E1B5D5610E1BED873 /* Frameworks */ = {
@@ -221,7 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47D00EAD2992ADBC00E7E2A5 /* ViewController.swift in Sources */,
+				47D00EAD2992ADBC00E7E2A5 /* NewsViewController.swift in Sources */,
 				47D00EA92992ADBC00E7E2A5 /* AppDelegate.swift in Sources */,
 				47D00EC129953A1500E7E2A5 /* VideoViewController.swift in Sources */,
 				47D00EAB2992ADBC00E7E2A5 /* SceneDelegate.swift in Sources */,
