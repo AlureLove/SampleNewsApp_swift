@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let tableView = UITableView(frame: self.view.bounds)
         tableView.dataSource = self;
         tableView.delegate = self;
-        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: UITableViewCell.description())
+        tableView.register(NormalTableViewCell.classForCoder(), forCellReuseIdentifier: NormalTableViewCell.description())
         self.view.addSubview(tableView)
     }
 
@@ -36,11 +36,13 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.description(), for: indexPath)
-        cell.textLabel?.text = "主标题 - \(indexPath.row)"
-        cell.detailTextLabel?.text = "副标题"
-        cell.imageView?.image = UIImage(named: "icon.bundle/video@2x.png")
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NormalTableViewCell.description(), for: indexPath) as? NormalTableViewCell else { return UITableViewCell() }
+        
+        cell.layoutTableViewCell()
+//        cell.textLabel?.text = "主标题 - \(indexPath.row)"
+//        cell.detailTextLabel?.text = "副标题"
+//        cell.imageView?.image = UIImage(named: "icon.bundle/video@2x.png")
         return cell
     }
     
