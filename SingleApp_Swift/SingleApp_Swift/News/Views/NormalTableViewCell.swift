@@ -58,6 +58,14 @@ class NormalTableViewCell: UITableViewCell {
     }
 
     public func layoutTableViewCell(with itemData: ListItemResultData) {
+        if itemData.uniquekey != nil {
+            let hasRead = UserDefaults.standard.bool(forKey: itemData.uniquekey!)
+            if hasRead {
+                titleLabel.textColor = .lightGray
+            } else {
+                titleLabel.textColor = .black
+            }
+        }
         titleLabel.text = itemData.title
         sourceLabel.text = itemData.author_name
         commentLabel.text = itemData.category

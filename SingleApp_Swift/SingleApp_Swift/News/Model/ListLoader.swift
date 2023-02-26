@@ -27,4 +27,21 @@ class ListLoader: NSObject {
             }
         }
     }
+
+    // 本来是用于将首次请求的数据存在本地，下次先从本地拿数据作为占位，后真实数据回来后进行替换，但是swift这个文件操作太难写，就先搁置，后续处理
+    private func archiveListData(with array: [ListItem]?) {
+        let pathArray = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+        let cachePath = pathArray.first
+
+        let fileManager = FileManager.default
+
+        guard let dataPath = cachePath?.appending("GTData") else { return }
+        try? fileManager.createDirectory(atPath: dataPath, withIntermediateDirectories: true, attributes: nil)
+
+        let listDataPath = dataPath.appending("list")
+
+        let listData = try? NSKeyedArchiver.archivedData(withRootObject: array as Any, requiringSecureCoding: true)
+
+        fileManager.createFile(atPath: listDataPath, contents: listData)
+    }
 }

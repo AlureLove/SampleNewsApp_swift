@@ -62,10 +62,15 @@ extension NewsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let jumpUrl: String = dataArray?[indexPath.row].url ?? "https://time.geekbang.org"
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard let item = dataArray?[indexPath.row] else { return }
 
-        let controller = DetailViewController(with: jumpUrl)
+        let controller = DetailViewController(with: item.url ?? "https://time.geekbang.org")
         controller.title = "\(indexPath.row)"
         navigationController?.pushViewController(controller, animated: true)
+
+        if item.uniquekey != nil {
+            UserDefaults.standard.set(true, forKey: item.uniquekey!)
+        }
     }
 }
