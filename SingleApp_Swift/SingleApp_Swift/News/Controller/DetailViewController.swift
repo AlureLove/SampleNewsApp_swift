@@ -14,6 +14,17 @@ class DetailViewController: UIViewController {
 
     private var progressView: UIProgressView?
 
+    private var articleUrl: String!
+
+    init(with urlString: String) {
+        super.init(nibName: nil, bundle: nil)
+        articleUrl = urlString
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +34,8 @@ class DetailViewController: UIViewController {
             return self.webView!
         }())
 
+        // 正确写法应该为 webView?.load(URLRequest(url: URL(string: self.articleUrl)!))
+        // 由于请求中的url失效，所以这里随便写了个可以跳转的，意思明白即可
         webView?.load(URLRequest(url: URL(string: "https://time.geekbang.org")!))
 
         webView?.addObserver(self, forKeyPath: "estimatedProgress", options: NSKeyValueObservingOptions.new, context: nil)
@@ -32,22 +45,7 @@ class DetailViewController: UIViewController {
 
             return self.progressView!
         }())
-
-//        self.view.addSubview(self.webView)
-//        self.webView.snp.makeConstraints { make in
-//            make.left.right.bottom.equalTo(self.view)
-//            make.top.equalTo(self.view).offset(88)
-//        }
-//
-//        self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
     }
-
-//    lazy private var webView: WKWebView = {
-//        let webView = WKWebView()
-//        webView.navigationDelegate = self
-//        webView.load(URLRequest(url: URL(string: "https://time.geekbang.org")!))
-//        return webView
-//    }()
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         progressView?.progress = Float(webView!.estimatedProgress)

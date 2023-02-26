@@ -19,6 +19,8 @@
 		47D00EDB2998B81C00E7E2A5 /* NormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EDA2998B81C00E7E2A5 /* NormalTableViewCell.swift */; };
 		47D00EDD2998CCF300E7E2A5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */; };
 		47D00EF52998DEB400E7E2A5 /* DeleteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EF42998DEB400E7E2A5 /* DeleteCellView.swift */; };
+		47D00EF9299A866C00E7E2A5 /* ListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EF8299A866C00E7E2A5 /* ListLoader.swift */; };
+		47D00F14299A9D0F00E7E2A5 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00F13299A9D0F00E7E2A5 /* ListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		47D00EDA2998B81C00E7E2A5 /* NormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTableViewCell.swift; sourceTree = "<group>"; };
 		47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		47D00EF42998DEB400E7E2A5 /* DeleteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCellView.swift; sourceTree = "<group>"; };
+		47D00EF8299A866C00E7E2A5 /* ListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLoader.swift; sourceTree = "<group>"; };
+		47D00F13299A9D0F00E7E2A5 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		94BC98B86630F817705BD522 /* Pods-SingleApp_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingleApp_Swift.release.xcconfig"; path = "Target Support Files/Pods-SingleApp_Swift/Pods-SingleApp_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		EA7EAB2B0FBEB1361FBE2072 /* Pods_SingleApp_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SingleApp_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,12 +93,38 @@
 		47D00EF62998F13C00E7E2A5 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				47D00EAC2992ADBC00E7E2A5 /* NewsViewController.swift */,
-				47D00EDA2998B81C00E7E2A5 /* NormalTableViewCell.swift */,
-				47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */,
-				47D00EF42998DEB400E7E2A5 /* DeleteCellView.swift */,
+				47D00F12299A9A4B00E7E2A5 /* Controller */,
+				47D00F11299A9A4400E7E2A5 /* Views */,
+				47D00F10299A9A3B00E7E2A5 /* Model */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		47D00F10299A9A3B00E7E2A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47D00EF8299A866C00E7E2A5 /* ListLoader.swift */,
+				47D00F13299A9D0F00E7E2A5 /* ListItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		47D00F11299A9A4400E7E2A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47D00EDA2998B81C00E7E2A5 /* NormalTableViewCell.swift */,
+				47D00EF42998DEB400E7E2A5 /* DeleteCellView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		47D00F12299A9A4B00E7E2A5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				47D00EAC2992ADBC00E7E2A5 /* NewsViewController.swift */,
+				47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		7B34859E1B5D5610E1BED873 /* Frameworks */ = {
@@ -229,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D00F14299A9D0F00E7E2A5 /* ListItem.swift in Sources */,
 				47D00EAD2992ADBC00E7E2A5 /* NewsViewController.swift in Sources */,
 				47D00EA92992ADBC00E7E2A5 /* AppDelegate.swift in Sources */,
+				47D00EF9299A866C00E7E2A5 /* ListLoader.swift in Sources */,
 				47D00EC129953A1500E7E2A5 /* VideoViewController.swift in Sources */,
 				47D00EAB2992ADBC00E7E2A5 /* SceneDelegate.swift in Sources */,
 				47D00EDB2998B81C00E7E2A5 /* NormalTableViewCell.swift in Sources */,

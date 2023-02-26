@@ -10,16 +10,13 @@ import UIKit
 class NewsViewController: UIViewController {
     private var tableView: UITableView?
 
-    private var dataArray: Array<Int>?
+    private var dataArray: Array<ListItemResultData>?
 
     init() {
         super.init(nibName: nil, bundle: nil)
         tabBarItem.title = "新闻"
         tabBarItem.image = UIImage(named: "icon.bundle/page@2x.png")
         tabBarItem.selectedImage = UIImage(named: "icon.bundle/page_selected@2x.png")
-        for i in 0 ... 19 {
-            dataArray?.append(i)
-        }
     }
 
     required init?(coder: NSCoder) {
@@ -35,6 +32,12 @@ class NewsViewController: UIViewController {
         tableView?.delegate = self
         tableView?.register(NormalTableViewCell.classForCoder(), forCellReuseIdentifier: NormalTableViewCell.description())
         view.addSubview(tableView!)
+        ListLoader.loadListData { [weak self] isSucceed, model in
+            if isSucceed {
+                self?.dataArray = model?.result?.data
+                self?.tableView?.reloadData()
+            }
+        }
     }
 }
 
@@ -45,8 +48,10 @@ extension NewsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NormalTableViewCell.description(), for: indexPath) as? NormalTableViewCell else { return UITableViewCell() }
-        cell.delegate = self
-        cell.layoutTableViewCell()
+
+        if dataArray?.count ?? 0 > 0 {
+            cell.layoutTableViewCell(with: dataArray![indexPath.row])
+        }
         return cell
     }
 }
@@ -57,24 +62,10 @@ extension NewsViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = DetailViewController()
+        let jumpUrl: String = dataArray?[indexPath.row].url ?? "https://time.geekbang.org"
+
+        let controller = DetailViewController(with: jumpUrl)
         controller.title = "\(indexPath.row)"
         navigationController?.pushViewController(controller, animated: true)
-    }
-}
-
-extension NewsViewController: NormalTableViewCellDelegate {
-    func tableViewCell(_ tableViewcell: UITableViewCell, clickDeleteButton deleteButton: UIButton) {
-        let deleteView = DeleteCellView(frame: view.bounds)
-
-        let rect: CGRect = tableViewcell.convert(deleteButton.frame, to: nil)
-
-//        guard let indexPath = self.tableView?.indexPath(for: tableViewcell) else { return }
-
-        deleteView.showDeleteView(From: rect.origin) { [weak self] in
-//            self!.dataArray?.remove(at: indexPath.row)
-//
-//            self?.tableView?.deleteRows(at: [indexPath], with: .automatic)
-        }
     }
 }

@@ -5,16 +5,11 @@
 //  Created by liuruixuan on 2023/2/12.
 //
 
+import Kingfisher
 import SnapKit
 import UIKit
 
-@objc public protocol NormalTableViewCellDelegate: NSObjectProtocol {
-    func tableViewCell(_ tableViewcell: UITableViewCell, clickDeleteButton deleteButton: UIButton)
-}
-
 class NormalTableViewCell: UITableViewCell {
-    open weak var delegate: NormalTableViewCellDelegate?
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -29,28 +24,28 @@ class NormalTableViewCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self.contentView).offset(15)
             make.left.equalTo(self.contentView).offset(20)
-            make.width.equalTo(300)
+            make.width.equalTo(270)
             make.height.equalTo(50)
         }
         contentView.addSubview(sourceLabel)
         sourceLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.contentView).offset(80)
+            make.bottom.equalTo(self.contentView).offset(-10)
             make.left.equalTo(self.contentView).offset(20)
-            make.width.equalTo(50)
+            make.width.lessThanOrEqualTo(80)
             make.height.equalTo(20)
         }
         contentView.addSubview(commentLabel)
         commentLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.contentView).offset(80)
-            make.left.equalTo(self.contentView).offset(100)
-            make.width.equalTo(50)
+            make.bottom.equalTo(self.contentView).offset(-10)
+            make.left.equalTo(self.sourceLabel.snp.right).offset(10)
+            make.width.lessThanOrEqualTo(50)
             make.height.equalTo(20)
         }
         contentView.addSubview(timeLabel)
         timeLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.contentView).offset(80)
-            make.left.equalTo(self.contentView).offset(150)
-            make.width.equalTo(50)
+            make.bottom.equalTo(self.contentView).offset(-10)
+            make.left.equalTo(self.commentLabel.snp.right).offset(10)
+            make.width.equalTo(150)
             make.height.equalTo(20)
         }
         contentView.addSubview(imageV)
@@ -60,43 +55,17 @@ class NormalTableViewCell: UITableViewCell {
             make.width.equalTo(70)
             make.height.equalTo(70)
         }
-        contentView.addSubview(deleteButton)
-        deleteButton.snp.makeConstraints { make in
-            make.right.equalTo(self.imageV.snp.left).offset(-15)
-            make.bottom.equalTo(self.contentView).offset(-10)
-            make.width.equalTo(30)
-            make.height.equalTo(20)
-        }
     }
 
-    public func layoutTableViewCell() {
-        titleLabel.text = "极客时间iOS开发"
-        sourceLabel.text = "极客时间"
-        sourceLabel.sizeToFit()
-        commentLabel.text = "1888评论"
-        commentLabel.sizeToFit()
-        commentLabel.snp.remakeConstraints { make in
-            make.top.equalTo(self.contentView).offset(80)
-            make.left.equalTo(self.sourceLabel.snp.right).offset(15)
-            make.width.equalTo(50)
-            make.height.equalTo(20)
-        }
-        timeLabel.text = "三分钟前"
-        timeLabel.sizeToFit()
-        timeLabel.snp.remakeConstraints { make in
-            make.top.equalTo(self.contentView).offset(80)
-            make.left.equalTo(self.commentLabel.snp.right).offset(15)
-            make.width.equalTo(50)
-            make.height.equalTo(20)
-        }
+    public func layoutTableViewCell(with itemData: ListItemResultData) {
+        titleLabel.text = itemData.title
+        sourceLabel.text = itemData.author_name
+        commentLabel.text = itemData.category
+        timeLabel.text = itemData.date
 
-        imageV.image = UIImage(named: "icon.bundle/icon.png")
-    }
-
-    @objc private func deleteButtonClick() {
-        if delegate != nil {
-            delegate?.tableViewCell(self, clickDeleteButton: deleteButton)
-        }
+        // 正确写法应该是 imageV.kf.setImage(with: URL(string: itemData.thumbnail_pic_s))
+        // 接口的返回的链接中图片所有的访问地址都已经挂掉，就随便找了个可以用的图片链接代替，这里知道用kf加载网络图片即可
+        imageV.kf.setImage(with: URL(string: "http://project.onapp.top:8081/community/head/5.png"))
     }
 
     // MARK: - lazy load
@@ -105,6 +74,8 @@ class NormalTableViewCell: UITableViewCell {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: 16)
         titleLabel.textColor = .black
+        titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byTruncatingTail
         return titleLabel
     }()
 
@@ -132,14 +103,5 @@ class NormalTableViewCell: UITableViewCell {
     private lazy var imageV: UIImageView = {
         let imageView = UIImageView()
         return imageView
-    }()
-
-    private lazy var deleteButton: UIButton = {
-        let deleteButton = UIButton()
-        deleteButton.backgroundColor = .blue
-        deleteButton.setTitle("X", for: .normal)
-        deleteButton.setTitle("V", for: .highlighted)
-        deleteButton.addTarget(self, action: #selector(deleteButtonClick), for: .touchUpInside)
-        return deleteButton
     }()
 }
