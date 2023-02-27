@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
         view.addSubview({
             self.webView = WKWebView(frame: CGRect(x: 0, y: 88, width: self.view.frame.size.width, height: self.view.frame.size.height - 88))
             self.webView?.navigationDelegate = self

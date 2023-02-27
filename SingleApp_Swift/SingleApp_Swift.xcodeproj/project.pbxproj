@@ -21,6 +21,8 @@
 		47D00EF52998DEB400E7E2A5 /* DeleteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EF42998DEB400E7E2A5 /* DeleteCellView.swift */; };
 		47D00EF9299A866C00E7E2A5 /* ListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00EF8299A866C00E7E2A5 /* ListLoader.swift */; };
 		47D00F14299A9D0F00E7E2A5 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D00F13299A9D0F00E7E2A5 /* ListItem.swift */; };
+		47D6C76429ACF60B005A900E /* VideoCoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D6C76329ACF60B005A900E /* VideoCoverCollectionViewCell.swift */; };
+		47D6C76929AD0DF5005A900E /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D6C76829AD0DF5005A900E /* VideoPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		47D00EF42998DEB400E7E2A5 /* DeleteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCellView.swift; sourceTree = "<group>"; };
 		47D00EF8299A866C00E7E2A5 /* ListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLoader.swift; sourceTree = "<group>"; };
 		47D00F13299A9D0F00E7E2A5 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		47D6C76329ACF60B005A900E /* VideoCoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoverCollectionViewCell.swift; sourceTree = "<group>"; };
+		47D6C76829AD0DF5005A900E /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		94BC98B86630F817705BD522 /* Pods-SingleApp_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingleApp_Swift.release.xcconfig"; path = "Target Support Files/Pods-SingleApp_Swift/Pods-SingleApp_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		EA7EAB2B0FBEB1361FBE2072 /* Pods_SingleApp_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SingleApp_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,6 +81,7 @@
 		47D00EA72992ADBC00E7E2A5 /* SingleApp_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				47D6C76229ACF545005A900E /* Video */,
 				47D00EF62998F13C00E7E2A5 /* News */,
 				47D00EBC2993E13A00E7E2A5 /* icon.bundle */,
 				47D00EA82992ADBC00E7E2A5 /* AppDelegate.swift */,
@@ -84,7 +89,6 @@
 				47D00EB12992ADBC00E7E2A5 /* Assets.xcassets */,
 				47D00EB32992ADBC00E7E2A5 /* LaunchScreen.storyboard */,
 				47D00EB62992ADBC00E7E2A5 /* Info.plist */,
-				47D00EC029953A1500E7E2A5 /* VideoViewController.swift */,
 				47D00EC2299540C300E7E2A5 /* RecommendViewController.swift */,
 			);
 			path = SingleApp_Swift;
@@ -125,6 +129,16 @@
 				47D00EDC2998CCF300E7E2A5 /* DetailViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		47D6C76229ACF545005A900E /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				47D00EC029953A1500E7E2A5 /* VideoViewController.swift */,
+				47D6C76329ACF60B005A900E /* VideoCoverCollectionViewCell.swift */,
+				47D6C76829AD0DF5005A900E /* VideoPlayer.swift */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		7B34859E1B5D5610E1BED873 /* Frameworks */ = {
@@ -266,6 +280,8 @@
 				47D00EC129953A1500E7E2A5 /* VideoViewController.swift in Sources */,
 				47D00EAB2992ADBC00E7E2A5 /* SceneDelegate.swift in Sources */,
 				47D00EDB2998B81C00E7E2A5 /* NormalTableViewCell.swift in Sources */,
+				47D6C76429ACF60B005A900E /* VideoCoverCollectionViewCell.swift in Sources */,
+				47D6C76929AD0DF5005A900E /* VideoPlayer.swift in Sources */,
 				47D00EF52998DEB400E7E2A5 /* DeleteCellView.swift in Sources */,
 				47D00EC3299540C300E7E2A5 /* RecommendViewController.swift in Sources */,
 				47D00EDD2998CCF300E7E2A5 /* DetailViewController.swift in Sources */,

@@ -26,14 +26,14 @@ class VideoViewController: UIViewController {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 10
         flowLayout.minimumInteritemSpacing = 10
-        flowLayout.itemSize = CGSize(width: (view.frame.size.width - 10) / 2, height: 300)
+        flowLayout.itemSize = CGSize(width: view.bounds.size.width, height: view.bounds.size.width / 16 * 9)
 
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
 
         collectionView.delegate = self
         collectionView.dataSource = self
 
-        collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: UICollectionViewCell.description())
+        collectionView.register(VideoCoverCollectionViewCell.self, forCellWithReuseIdentifier: VideoCoverCollectionViewCell.description())
 
         view.addSubview(collectionView)
     }
@@ -47,8 +47,10 @@ extension VideoViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.description(), for: indexPath)
-        cell.backgroundColor = .red
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VideoCoverCollectionViewCell.description(), for: indexPath) as? VideoCoverCollectionViewCell else { return UICollectionViewCell() }
+
+        cell.layout(with: "videoCover", videoUrl: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+
         return cell
     }
 }
@@ -56,16 +58,4 @@ extension VideoViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension VideoViewController: UICollectionViewDelegate {
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension VideoViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item % 3 == 0 {
-            return CGSize(width: view.frame.size.width, height: 150)
-        } else {
-            return CGSize(width: (view.frame.size.width - 10) / 2, height: 300)
-        }
-    }
 }
